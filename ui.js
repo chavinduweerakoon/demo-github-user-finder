@@ -31,6 +31,28 @@ class UI {
     `;
   }
 
+  showRepos() {
+    let repos = [];
+    repos.forEach(function (repo) {
+      output += `
+      <div class='card card-body mb-2'>
+      <div class="row">
+      <div class="col-md-6">
+      <a href="${repo.html_url}" target="_blank">${repo.full_name}</a>
+      </div>
+      <div class="col-md-6">
+      <span class="badge badge-secondary">Stars: ${repo.stargazers_count}</span>
+      <span class="badge badge-success">Watchers: ${repo.watchers_count}</span>
+      <span class="badge badge-info">Forks: ${repo.forks_count}</span>
+      </div>
+      </div>
+      </div>
+      `;
+    });
+    //output
+    document.querySelector("#repos").innerHTML = output;
+  }
+
   clearProfile() {
     this.profile.innerHTML = "";
   }
@@ -51,7 +73,7 @@ class UI {
   clearAlert() {
     const currentAlert = document.querySelector(".alert");
     if (currentAlert) {
-      currentAlert.remove;
+      currentAlert.remove();
     }
   }
 }
