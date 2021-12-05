@@ -34,4 +34,24 @@ class UI {
   clearProfile() {
     this.profile.innerHTML = "";
   }
+
+  showAlert(errorMsg, className) {
+    this.clearAlert();
+    const div = document.createElement("div");
+    div.className = className;
+    div.appendChild(document.createTextNode(errorMsg));
+    const container = document.querySelector(".searchContainer");
+    const search = document.querySelector(".search");
+    container.insertBefore(div, search);
+    setTimeout(() => {
+      this.clearAlert();
+    }, 3000);
+  }
+
+  clearAlert() {
+    const currentAlert = document.querySelector(".alert");
+    if (currentAlert) {
+      currentAlert.remove;
+    }
+  }
 }

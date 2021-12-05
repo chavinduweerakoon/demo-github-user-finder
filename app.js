@@ -10,6 +10,7 @@ searchString.addEventListener("keyup", (e) => {
       //   console.log(data);
       if (data.profile.message === "Not Found") {
         //alert
+        ui.showAlert("User Not Found", "alert alert-danger");
       } else {
         //profile
         ui.showProfile(data.profile);
